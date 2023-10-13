@@ -650,12 +650,11 @@ $resetBtn.addEventListener('click', async ()=>{
 
 // ----- LINKS -----
 
-const $codeBtn: HTMLButtonElement = document.querySelector('.code-btn')!;
-$codeBtn.addEventListener('click', ()=>open('https://github.com/bernzrdo/metro-maker'));
+// const $codeBtn: HTMLButtonElement = document.querySelector('.code-btn')!;
+// $codeBtn.addEventListener('click', ()=>open('https://github.com/bernzrdo/metro-maker'));
 
-const $feedbackBtn: HTMLButtonElement = document.querySelector('.feedback-btn')!;
-$feedbackBtn.addEventListener('click', ()=>open('https://form.typeform.com/to/waX1PInR'));
-
+// const $feedbackBtn: HTMLButtonElement = document.querySelector('.feedback-btn')!;
+// $feedbackBtn.addEventListener('click', ()=>open('https://form.typeform.com/to/waX1PInR'));
 
 // ----- CLICK ON MAP -----
 

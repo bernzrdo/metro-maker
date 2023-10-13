@@ -1829,14 +1829,10 @@ $resetBtn.addEventListener('click', function () {
   }));
 });
 // ----- LINKS -----
-var $codeBtn = document.querySelector('.code-btn');
-$codeBtn.addEventListener('click', function () {
-  return open('https://github.com/bernzrdo/metro-maker');
-});
-var $feedbackBtn = document.querySelector('.feedback-btn');
-$feedbackBtn.addEventListener('click', function () {
-  return open('https://form.typeform.com/to/waX1PInR');
-});
+// const $codeBtn: HTMLButtonElement = document.querySelector('.code-btn')!;
+// $codeBtn.addEventListener('click', ()=>open('https://github.com/bernzrdo/metro-maker'));
+// const $feedbackBtn: HTMLButtonElement = document.querySelector('.feedback-btn')!;
+// $feedbackBtn.addEventListener('click', ()=>open('https://form.typeform.com/to/waX1PInR'));
 // ----- CLICK ON MAP -----
 var preventNewStation = false;
 map.on('click', function (e) {
