@@ -1,0 +1,80 @@
+{
+	"systems": [
+		{
+			"id": "24b1b2f1-84a5-4139-a099-a79b8a3f6629",
+			"name": "Metropolitano de Lisboa",
+			"lines": [
+				"1aa675c0-38df-44eb-9d71-e2ebe2714b30",
+				"5cf7abff-c525-4ad7-b626-6421b9a63bfa",
+				"a37c0add-5ff0-4004-a3bf-153a173d0f07",
+				"1e9ddd03-722c-4457-8410-22800bab1a81"
+			]
+		}
+	],
+	"lines": [
+		{
+			"id": "1aa675c0-38df-44eb-9d71-e2ebe2714b30",
+			"name": "Linha Azul",
+			"color": "#5488C5",
+			"stations": [
+				"d7e75296-7e1a-4289-895a-fe81ca946e3e",
+				"88b9e24f-abab-49ff-8bc7-a8b79006a575",
+				"85ecc0de-5aad-493e-af0d-0afaebdaf3d5",
+				"6a1d184a-1dfb-4ef0-ab98-8654148f7327"
+			]
+		},
+		{
+			"id": "5cf7abff-c525-4ad7-b626-6421b9a63bfa",
+			"name": "Linha Amarela",
+			"color": "#FDB713",
+			"stations": []
+		},
+		{
+			"id": "a37c0add-5ff0-4004-a3bf-153a173d0f07",
+			"name": "Linha Verde",
+			"color": "#00A8A5",
+			"stations": []
+		},
+		{
+			"id": "1e9ddd03-722c-4457-8410-22800bab1a81",
+			"name": "Linha Vermelha",
+			"color": "#EE2B73",
+			"stations": [
+				"85ecc0de-5aad-493e-af0d-0afaebdaf3d5",
+				"04a003ce-8ff1-46dc-bf86-2dd31c73a3aa"
+			]
+		}
+	],
+	"stations": [
+		{
+			"id": "d7e75296-7e1a-4289-895a-fe81ca946e3e",
+			"name": "Sete Rios",
+			"lat": 38.74029733004452,
+			"lng": -9.166672055616296
+		},
+		{
+			"id": "88b9e24f-abab-49ff-8bc7-a8b79006a575",
+			"name": "Praça de Espanha",
+			"lat": 38.737482386458616,
+			"lng": -9.158519856286723
+		},
+		{
+			"id": "85ecc0de-5aad-493e-af0d-0afaebdaf3d5",
+			"name": "São Sebastião",
+			"lat": 38.73408862407105,
+			"lng": -9.15395768150373
+		},
+		{
+			"id": "6a1d184a-1dfb-4ef0-ab98-8654148f7327",
+			"name": "Parque Eduardo VII",
+			"lat": 38.72982595777171,
+			"lng": -9.150128959855147
+		},
+		{
+			"id": "04a003ce-8ff1-46dc-bf86-2dd31c73a3aa",
+			"name": "Saldanha",
+			"lat": 38.73473323850773,
+			"lng": -9.145285942593242
+		}
+	]
+}

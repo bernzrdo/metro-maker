@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <title>Metro Maker</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0..1,0&display=swap" rel="stylesheet">
+
+        <link rel="stylesheet" href="/css/style.css">
+    </head>
+    <body>
+
+        <div id="map"></div>
+
+        <div id="menu">
+            <div class="section">
+                <button class="systems-btn" data-tooltip="Systems">
+                    <span class="material-symbols-outlined">map</span>
+                </button>
+                <button class="lines-btn" data-tooltip="Lines">
+                    <span class="material-symbols-outlined">timeline</span>
+                </button>
+                <button class="stations-btn" data-tooltip="Stations">
+                    <span class="material-symbols-outlined">train</span>
+                </button>
+            </div>
+            <div class="divider"></div>
+            <div class="section">
+                <button class="download-btn" data-tooltip="Download">
+                    <span class="material-symbols-outlined">download</span>
+                </button>
+                <button class="upload-btn" data-tooltip="Upload">
+                    <span class="material-symbols-outlined">upload</span>
+                </button>
+                <button class="reset-btn" data-tooltip="Reset">
+                    <span class="material-symbols-outlined">refresh</span>
+                </button>
+            </div>
+            <div class="divider"></div>
+            <div class="section">
+                <button class="code-btn" data-tooltip="Source Code">
+                    <span class="material-symbols-outlined">code</span>
+                </button>
+                <button class="feedback-btn" data-tooltip="Feedback">
+                    <span class="material-symbols-outlined">feedback</span>
+                </button>
+            </div>
+        </div>
+
+        <dialog id="confirm">
+            <h1>Are you sure?</h1>
+            <div class="message"></div>
+            <div class="btns">
+                <button class="no-btn">No</button>
+                <button class="yes-btn danger">Yes</button>
+            </div>
+        </dialog>
+
+        <dialog id="alert">
+            <div class="close-btn">
+                <span class="material-symbols-outlined">close</span>
+            </div>
+            <h1>Uh oh!</h1>
+            <div class="message"></div>
+            <div class="btns">
+                <button class="ok-btn">OK</button>
+            </div>
+        </dialog>
+
+        <dialog id="systems">
+            <div class="close-btn">
+                <span class="material-symbols-outlined">close</span>
+            </div>
+            <h1>
+                <span class="material-symbols-outlined">map</span>
+                Systems
+            </h1>
+            <div class="list">
+                <div class="add-item">
+                    <span class="material-symbols-outlined">add</span>
+                    Add new system...
+                </div>
+            </div>
+        </dialog>
+
+        <dialog id="lines">
+            <div class="close-btn">
+                <span class="material-symbols-outlined">close</span>
+            </div>
+            <h1>
+                <span class="material-symbols-outlined">timeline</span>
+                Lines
+            </h1>
+            <div class="select off">
+                <div class="selected">
+                    <span class="material-symbols-outlined">map</span>
+                    <div class="name"></div>
+                    <span class="material-symbols-outlined chevron">expand_more</span>
+                </div>
+                <div class="options"></div>
+            </div>
+            <div class="list">
+                <div class="add-item">
+                    <span class="material-symbols-outlined">add</span>
+                    Add new line...
+                </div>
+            </div>
+        </dialog>
+
+        <dialog id="line">
+            <div class="close-btn">
+                <span class="material-symbols-outlined">close</span>
+            </div>
+            <header>
+                <div class="color">
+                    <input type="color">
+                </div>
+                <input class="name">
+                <button class="edit-btn">
+                    <span class="material-symbols-outlined fill">edit</span>
+                </button>
+                <button class="delete-btn">
+                    <span class="material-symbols-outlined">delete</span>
+                </button>
+            </header>
+            <div class="stations"></div>
+        </dialog>
+
+        <dialog id="stations">
+            <div class="close-btn">
+                <span class="material-symbols-outlined">close</span>
+            </div>
+            <h1>
+                <span class="material-symbols-outlined">train</span>
+                Stations
+            </h1>
+            <div class="hint">Only showing currently visible stations.</div>
+            <div class="list"></div>
+        </dialog>
+
+        <dialog id="station">
+            <div class="close-btn">
+                <span class="material-symbols-outlined">close</span>
+            </div>
+            <header>
+                <input class="name">
+                <button class="edit-btn">
+                    <span class="material-symbols-outlined fill">edit</span>
+                </button>
+                <button class="delete-btn">
+                    <span class="material-symbols-outlined">delete</span>
+                </button>
+            </header>
+            <div class="select off">
+                <div class="selected">
+                    <span class="material-symbols-outlined">map</span>
+                    <div class="name"></div>
+                    <span class="material-symbols-outlined chevron">expand_more</span>
+                </div>
+                <div class="options"></div>
+            </div>
+            <div class="lines"></div>
+        </dialog>
+
+        <script src="/js/script.js"></script>
+    </body>
+</html>
