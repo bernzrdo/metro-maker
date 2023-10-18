@@ -435,14 +435,30 @@ function openStation(station: Station){
     $stationName.value = station.name;
 
     let line = metro.lines.find(l=>l.stations.some(s=>s.id == station.id));
-    if(line)
+    if(line){
         selectedStationSystem = metro.systems.find(s=>s.lines.some(l=>l.id == line!.id))!;
-    else
-        [selectedStationSystem] = metro.systems;
+    }else{
+
+        let [closestStation] = metro.stations
+            .filter(s=>s.id != station.id && metro.lines.some(l=>l.stations.some(st=>st.id == s.id)))
+            .sort((a,b)=>distance(station.coords, a.coords) - distance(station.coords, b.coords));
+
+        if(closestStation)
+            selectedStationSystem = metro.systems.find(s=>s.lines.some(l=>l.stations.some(s=>s.id == closestStation.id)))!;
+        else
+            [selectedStationSystem] = metro.systems;
+
+    }
 
     renderStationSelectedSystem();
 
     openDialog($station);
+}
+
+function distance(a: leaflet.LatLng, b: leaflet.LatLng){
+    let latDiff = Math.abs(a.lat - b.lat);
+    let lngDiff = Math.abs(a.lng - b.lng);
+    return Math.sqrt(latDiff * latDiff + lngDiff * lngDiff);
 }
 
 $stationName.addEventListener('input', ()=>{
@@ -650,11 +666,8 @@ $resetBtn.addEventListener('click', async ()=>{
 
 // ----- LINKS -----
 
-// const $codeBtn: HTMLButtonElement = document.querySelector('.code-btn')!;
-// $codeBtn.addEventListener('click', ()=>open('https://github.com/bernzrdo/metro-maker'));
-
-// const $feedbackBtn: HTMLButtonElement = document.querySelector('.feedback-btn')!;
-// $feedbackBtn.addEventListener('click', ()=>open('https://form.typeform.com/to/waX1PInR'));
+const $codeBtn: HTMLButtonElement = document.querySelector('.code-btn')!;
+$codeBtn.addEventListener('click', ()=>open('https://github.com/bernzrdo/metro-maker'));
 
 // ----- CLICK ON MAP -----
 

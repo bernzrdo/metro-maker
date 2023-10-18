@@ -1520,16 +1520,42 @@ function openStation(station) {
       return s.id == station.id;
     });
   });
-  if (line) selectedStationSystem = metro.systems.find(function (s) {
-    return s.lines.some(function (l) {
-      return l.id == line.id;
+  if (line) {
+    selectedStationSystem = metro.systems.find(function (s) {
+      return s.lines.some(function (l) {
+        return l.id == line.id;
+      });
     });
-  });else {
-    var _metro$systems2 = _slicedToArray(metro.systems, 1);
-    selectedStationSystem = _metro$systems2[0];
+  } else {
+    var _metro$stations$filte = metro.stations.filter(function (s) {
+        return s.id != station.id && metro.lines.some(function (l) {
+          return l.stations.some(function (st) {
+            return st.id == s.id;
+          });
+        });
+      }).sort(function (a, b) {
+        return distance(station.coords, a.coords) - distance(station.coords, b.coords);
+      }),
+      _metro$stations$filte2 = _slicedToArray(_metro$stations$filte, 1),
+      closestStation = _metro$stations$filte2[0];
+    if (closestStation) selectedStationSystem = metro.systems.find(function (s) {
+      return s.lines.some(function (l) {
+        return l.stations.some(function (s) {
+          return s.id == closestStation.id;
+        });
+      });
+    });else {
+      var _metro$systems2 = _slicedToArray(metro.systems, 1);
+      selectedStationSystem = _metro$systems2[0];
+    }
   }
   renderStationSelectedSystem();
   (0, _dialog_1.openDialog)($station);
+}
+function distance(a, b) {
+  var latDiff = Math.abs(a.lat - b.lat);
+  var lngDiff = Math.abs(a.lng - b.lng);
+  return Math.sqrt(latDiff * latDiff + lngDiff * lngDiff);
 }
 $stationName.addEventListener('input', function () {
   currentStation.name = $stationName.value;
@@ -1829,10 +1855,10 @@ $resetBtn.addEventListener('click', function () {
   }));
 });
 // ----- LINKS -----
-// const $codeBtn: HTMLButtonElement = document.querySelector('.code-btn')!;
-// $codeBtn.addEventListener('click', ()=>open('https://github.com/bernzrdo/metro-maker'));
-// const $feedbackBtn: HTMLButtonElement = document.querySelector('.feedback-btn')!;
-// $feedbackBtn.addEventListener('click', ()=>open('https://form.typeform.com/to/waX1PInR'));
+var $codeBtn = document.querySelector('.code-btn');
+$codeBtn.addEventListener('click', function () {
+  return open('https://github.com/bernzrdo/metro-maker');
+});
 // ----- CLICK ON MAP -----
 var preventNewStation = false;
 map.on('click', function (e) {
